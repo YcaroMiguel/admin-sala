@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f0f4f8;
+    background-color: #e5ded8; /* Cor de fundo neutra */
     color: #333;
     display: flex;
     flex-direction: column;
@@ -14,124 +14,124 @@ body {
 }
 
 header {
-    background-color: #0077b6;
+    background-color: #25d366; /* Cor característica do WhatsApp */
     color: white;
-    padding: 20px 0;
-    text-align: center;
+    padding: 15px 20px;
     font-size: 24px;
     font-weight: bold;
-    letter-spacing: 2px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-header:hover {
-    background-color: #005f73;
-}
-
-nav ul {
-    list-style: none;
     display: flex;
-    justify-content: center;
-    padding: 15px 0;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-nav ul li {
-    margin: 0 20px;
-    position: relative;
+header .title {
+    font-size: 26px;
 }
 
-nav ul li a {
-    color: #0077b6;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-    position: relative;
-    padding: 5px 0;
-    transition: color 0.3s ease;
-}
-
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #0077b6;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-nav ul li a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
+header .back-button {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background: none;
 }
 
 main {
     flex: 1;
-    padding: 40px;
+    padding: 10px;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 30px auto;
-    max-width: 1200px;
-    transition: box-shadow 0.3s ease;
-}
-
-main:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-section h2 {
-    color: #333;
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-section p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #666;
-}
-
-button {
-    background-color: #0077b6;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    max-width: 1000px;
+    margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-    background-color: #005f73;
-    transform: translateY(-2px);
+.thread {
+    padding: 15px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.thread:last-child {
+    border-bottom: none;
+}
+
+.thread .post {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.thread .post .author {
+    font-weight: bold;
+    color: #25d366;
+    font-size: 18px;
+}
+
+.thread .post .message {
+    background-color: #e1f5d5;
+    color: #333;
+    padding: 10px;
+    border-radius: 20px;
+    max-width: 70%;
+    margin-top: 5px;
+    font-size: 16px;
+    word-wrap: break-word;
+}
+
+.thread .post .time {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.response {
+    padding: 10px;
+    border-left: 4px solid #25d366;
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.thread input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 15px;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.thread button {
+    background-color: #25d366;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.thread button:hover {
+    background-color: #128c7e;
 }
 
 footer {
-    background-color: #0077b6;
+    background-color: #25d366;
     color: white;
     text-align: center;
-    padding: 20px 0;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 14px;
     position: relative;
-    margin-top: 50px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 footer p {
@@ -150,33 +150,65 @@ footer a:hover {
     color: #ffbf47;
 }
 
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
     header {
+        font-size: 18px;
+    }
+
+    header .title {
         font-size: 22px;
     }
 
-    nav ul {
-        flex-direction: column;
+    .thread .post .message {
+        max-width: 90%;
     }
 
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    main {
-        padding: 20px;
-    }
-
-    section h2 {
-        font-size: 28px;
-    }
-
-    section p {
+    .thread input,
+    .thread button {
+        width: 100%;
+        padding: 10px;
         font-size: 14px;
     }
 
-    button {
+    .thread .post .author {
         font-size: 16px;
-        padding: 10px 20px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+/* RESPONSIVIDADE PARA CELULARES */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    .thread {
+        padding: 10px;
+    }
+
+    .thread .post .message {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    .thread .post .author {
+        font-size: 14px;
+    }
+
+    .thread input,
+    .thread button {
+        font-size: 14px;
+    }
+
+    footer {
+        font-size: 10px;
     }
     }
