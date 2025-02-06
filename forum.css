@@ -63,3 +63,8 @@ main {
         padding: 15px;
     }
 }
+
+.media-content {
+    margin-top: 10px;
+    max-width: 100%;
+}
