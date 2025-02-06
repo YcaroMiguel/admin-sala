@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ddeeff, #eef5ff);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+h1, h2 {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+nav {
+    background-color: #0055aa;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#novo-post, #posts {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+#novo-post:hover, #posts:hover {
+    transform: scale(1.02);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.post {
+    background: #eef;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.respostas {
+    padding: 10px;
+    margin-top: 10px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.resposta {
+    padding: 5px;
+    margin-top: 5px;
+    border-bottom: 1px solid #ddd;
+}
