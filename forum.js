@@ -1,66 +1,80 @@
-document.addEventListener("DOMContentLoaded", carregarPosts);
+document.addEventListener("DOMContentLoaded", function () {
+    loadPosts();
+});
 
-function publicarPost() {
-    let autor = document.getElementById("autor").value.trim();
-    let mensagem = document.getElementById("mensagem").value.trim();
-
-    if (autor === "" || mensagem === "") {
+// Função para criar um novo post
+function submitPost() {
+    const userName = document.getElementById("user-name").value.trim();
+    const postContent = document.getElementById("new-post").value.trim();
+    
+    if (userName === "" || postContent === "") {
         alert("Por favor, preencha todos os campos!");
         return;
     }
 
-    let post = {
-        id: Date.now(),
-        autor,
-        mensagem,
-        data: new Date().toLocaleString(),
-        curtidas: 0,
-        respostas: []
-    };
-
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-    posts.unshift(post);
-    localStorage.setItem("posts", JSON.stringify(posts));
-
-    document.getElementById("autor").value = "";
-    document.getElementById("mensagem").value = "";
-    carregarPosts();
-}
-
-function carregarPosts() {
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-    let listaPosts = document.getElementById("lista-posts");
-    listaPosts.innerHTML = "";
-
-    posts.forEach(post => {
-        let div = document.createElement("div");
-        div.classList.add("post");
-        div.innerHTML = `
-            <h3>${post.autor}</h3>
-            <p>${post.mensagem}</p>
-            <small>🕒 ${post.data}</small>
-            <button onclick="curtirPost(${post.id})">👍 Curtir (${post.curtidas})</button>
-            <button onclick="mostrarRespostas(${post.id})">💬 Responder</button>
-            <button onclick="apagarPost(${post.id})">🗑️ Apagar</button>
-            <div class="respostas" id="respostas-${post.id}" style="display: none;">
-                <input type="text" id="autor-resposta-${post.id}" placeholder="Seu nome">
-                <input type="text" id="resposta-${post.id}" placeholder="Digite sua resposta...">
-                <button onclick="responderPost(${post.id})">Enviar</button>
-                <div id="lista-respostas-${post.id}"></div>
+    const postId = Date.now();
+    const postHTML = `
+        <div class="card post-card" id="post-${postId}">
+            <div class="card-body">
+                <div class="post-header">
+                    <h5 class="card-title">${userName}</h5>
+                    <div class="post-actions">
+                        <button onclick="likePost(${postId})" class="like-button"><i class="bi bi-heart"></i></button>
+                        <button onclick="deletePost(${postId})"><i class="bi bi-trash text-danger"></i></button>
+                    </div>
+                </div>
+                <p class="card-text">${postContent}</p>
+                <button onclick="showReplyForm(${postId})" class="btn btn-link">Responder</button>
+                <div class="replies" id="replies-${postId}"></div>
+                <div id="reply-form-${postId}" style="display: none;">
+                    <input type="text" id="reply-user-${postId}" class="form-control mt-2" placeholder="Seu nome">
+                    <textarea id="reply-text-${postId}" class="form-control mt-2" placeholder="Escreva sua resposta..."></textarea>
+                    <button onclick="submitReply(${postId})" class="btn btn-primary btn-sm mt-2">Enviar</button>
+                </div>
             </div>
-        `;
-        listaPosts.appendChild(div);
-        carregarRespostas(post.id);
-    });
+        </div>
+    `;
+
+    document.getElementById("posts-section").innerHTML += postHTML;
+    document.getElementById("new-post").value = "";
+    document.getElementById("user-name").value = "";
 }
 
-function apagarPost(id) {
-    if (!confirm("Tem certeza que deseja apagar este post?")) {
+// Função para exibir o formulário de resposta
+function showReplyForm(postId) {
+    document.getElementById(`reply-form-${postId}`).style.display = "block";
+}
+
+// Função para responder a um post
+function submitReply(postId) {
+    const userName = document.getElementById(`reply-user-${postId}`).value.trim();
+    const replyText = document.getElementById(`reply-text-${postId}`).value.trim();
+
+    if (userName === "" || replyText === "") {
+        alert("Preencha todos os campos para responder!");
         return;
     }
 
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-    posts = posts.filter(post => post.id !== id);
-    localStorage.setItem("posts", JSON.stringify(posts));
-    carregarPosts();
+    const replyHTML = `
+        <div class="card reply-card">
+            <div class="card-body">
+                <h6 class="card-title">${userName}</h6>
+                <p class="card-text">${replyText}</p>
+            </div>
+        </div>
+    `;
+
+    document.getElementById(`replies-${postId}`).innerHTML += replyHTML;
+    document.getElementById(`reply-form-${postId}`).style.display = "none";
+}
+
+// Função para curtir um post
+function likePost(postId) {
+    const likeButton = document.querySelector(`#post-${postId} .like-button`);
+    likeButton.classList.toggle("liked");
+}
+
+// Função para deletar um post
+function deletePost(postId) {
+    document.getElementById(`post-${postId}`).remove();
 }
