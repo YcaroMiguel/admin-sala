@@ -1,4 +1,4 @@
-/* Estilos Gerais */
+/* Reset Geral */
 * {
     margin: 0;
     padding: 0;
@@ -7,231 +7,63 @@
 }
 
 body {
-    background-color: #f4f4f4; /* Cor de fundo suave */
-    color: #333;
-    font-size: 16px;
+    background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-header {
-    background-color: #4CAF50; /* Cor de fundo do cabeçalho */
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 main {
     flex: 1;
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 1000px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
 }
 
-.thread {
+/* Estilos dos Posts */
+.post-card {
     margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
-}
-
-.thread:last-child {
-    border-bottom: none;
-}
-
-.thread .post {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    background-color: #f9f9f9;
     border-radius: 10px;
-    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
-.thread .post .author {
-    font-weight: bold;
-    font-size: 18px;
-    color: #4CAF50;
+.post-card:hover {
+    transform: scale(1.02);
 }
 
-.thread .post .message {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #e0f7fa;
-    border-radius: 10px;
-    font-size: 16px;
-    color: #333;
-    word-wrap: break-word;
-}
-
-.thread .post .time {
-    font-size: 12px;
-    color: #888;
-    margin-top: 5px;
-    text-align: right;
-}
-
-.thread .post .actions {
+.post-header {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    align-items: center;
 }
 
-.thread .post .actions button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px 12px;
+.post-actions button {
     border: none;
-    border-radius: 5px;
+    background: none;
     cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
+    font-size: 18px;
 }
 
-.thread .post .actions button:hover {
-    background-color: #388e3c;
+.like-button {
+    color: #007bff;
 }
 
-.thread input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 16px;
-    margin-top: 20px;
+.like-button.liked {
+    color: red;
 }
 
-.thread button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size: 16px;
+/* Estilos das Respostas */
+.replies {
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 3px solid #ddd;
+}
+
+.reply-card {
     margin-top: 10px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease;
-}
-
-.thread button:hover {
-    background-color: #388e3c;
-}
-
-footer {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 14px;
-    position: relative;
-}
-
-footer p {
-    margin: 0;
-}
-
-footer a {
-    color: white;
-    text-decoration: underline;
 }
 
 /* Responsividade */
-
-@media (max-width: 1024px) {
-    main {
-        padding: 15px;
-    }
-
-    .thread .post {
-        padding: 12px;
-    }
-
-    .thread .post .author {
-        font-size: 16px;
-    }
-
-    .thread .post .message {
-        font-size: 14px;
-    }
-
-    .thread button {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .thread input {
-        padding: 10px;
-    }
-}
-
 @media (max-width: 768px) {
-    header {
-        font-size: 20px;
-        padding: 10px;
-    }
-
-    .thread .post .author {
-        font-size: 14px;
-    }
-
-    .thread .post .message {
-        font-size: 12px;
-    }
-
-    .thread button {
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    .thread input {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    footer {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
-
-    header {
-        font-size: 18px;
-    }
-
-    main {
-        padding: 10px;
-    }
-
-    .thread .post {
-        padding: 10px;
-    }
-
-    .thread .post .author {
-        font-size: 12px;
-    }
-
-    .thread .post .message {
-        font-size: 12px;
-    }
-
-    .thread input,
-    .thread button {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    footer {
-        font-size: 10px;
+    .post-card {
+        padding: 15px;
     }
 }
