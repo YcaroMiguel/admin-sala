@@ -1,53 +1,70 @@
+/* Estilo Geral */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background-color: #f4f4f4;
+    align-items: center;
 }
 
+/* Cabeçalho */
 header {
-    background: #0056b3;
-    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    text-align: center;
     padding: 15px;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
+    font-size: 24px;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
-main {
-    flex: 1;
+/* Container principal */
+.container {
+    max-width: 1000px;
+    margin-top: 20px;
     padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
 }
 
-footer {
-    background: #003366;
+/* Efeito de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botões */
+button {
+    background: #ff9800;
     color: white;
-    text-align: center;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e68900;
+    cursor: pointer;
+}
+
+/* Rodapé */
+footer {
+    background: rgba(0, 0, 0, 0.5);
     padding: 10px;
-    margin-top: auto;
+    width: 100%;
+    text-align: center;
     position: relative;
     bottom: 0;
-    width: 100%;
 }
