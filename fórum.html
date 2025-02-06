@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórum da Turma</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>📢 Fórum da Turma - 8º Ano AT</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="forum.html">Fórum</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="novo-post">
+            <h2>📝 Criar um Novo Post</h2>
+            <input type="text" id="autor" placeholder="Seu nome">
+            <textarea id="mensagem" placeholder="Escreva sua mensagem..."></textarea>
+            <button onclick="publicarPost()">Publicar</button>
+        </section>
+
+        <section id="posts">
+            <h2>📃 Posts Recentes</h2>
+            <div id="lista-posts"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Fórum da Turma | Criado por Ycaro Miguel</p>
+    </footer>
+
+    <script src="forum.js"></script>
+</body>
+</html>
