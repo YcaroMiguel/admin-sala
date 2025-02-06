@@ -1,102 +1,165 @@
-/* Estilo geral */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #e5ddd5;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #e5ded8; /* Cor de fundo neutra */
+    color: #333;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    min-height: 100vh;
 }
 
-/* Cabeçalho do fórum */
 header {
-    background: #075e54;
+    background-color: #25d366; /* Cor característica do WhatsApp */
     color: white;
-    text-align: center;
-    width: 100%;
-    padding: 15px;
+    padding: 15px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .title {
+    font-size: 26px;
+}
+
+header .back-button {
     font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background: none;
 }
 
-/* Caixa de posts */
-#lista-posts {
-    width: 90%;
-    max-width: 600px;
-    margin-top: 20px;
-}
-
-/* Estilo dos posts */
-.post {
-    background: #ffffff;
+main {
+    flex: 1;
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thread {
+    padding: 15px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.thread:last-child {
+    border-bottom: none;
+}
+
+.thread .post {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 15px;
-    position: relative;
 }
 
-/* Nome do autor */
-.post h3 {
+.thread .post .author {
+    font-weight: bold;
+    color: #25d366;
+    font-size: 18px;
+}
+
+.thread .post .message {
+    background-color: #e1f5d5;
+    color: #333;
+    padding: 10px;
+    border-radius: 20px;
+    max-width: 70%;
+    margin-top: 5px;
     font-size: 16px;
-    color: #075e54;
+    word-wrap: break-word;
 }
 
-/* Texto do post */
-.post p {
+.thread .post .time {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.response {
+    padding: 10px;
+    border-left: 4px solid #25d366;
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
     font-size: 14px;
     color: #333;
 }
 
-/* Data do post */
-.post small {
-    color: #777;
-    font-size: 12px;
-    display: block;
-    margin-top: 5px;
-}
-
-/* Botões */
-.post button {
-    background: #25d366;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    margin: 5px 3px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.post button:hover {
-    background: #128c7e;
-}
-
-/* Balões de respostas */
-.respostas {
-    margin-top: 10px;
-    padding: 10px;
-    background: #dcf8c6;
-    border-radius: 10px;
-}
-
-input[type="text"] {
-    width: 80%;
-    padding: 8px;
-    border-radius: 5px;
+.thread input {
+    width: 100%;
+    padding: 12px;
     border: 1px solid #ccc;
-    margin-top: 5px;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 15px;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-button {
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
-    background: #128c7e;
+.thread button {
+    background-color: #25d366;
     color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-top: 10px;
     cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background: #075e54;
+.thread button:hover {
+    background-color: #128c7e;
 }
+
+footer {
+    background-color: #25d366;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    position: relative;
+}
+
+footer p {
+    margin: 0;
+    font-weight: 500;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffbf47;
+}
+
+@media (max-width: 768px) {
+    header {
+        font-size: 18px;
+    }
+
+    .thread .post .message {
+        max-width: 90%;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+    }
