@@ -1,9 +1,8 @@
-/* Reset Geral */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
@@ -17,7 +16,6 @@ main {
     flex: 1;
 }
 
-/* Estilos dos Posts */
 .post-card {
     margin-bottom: 20px;
     border-radius: 10px;
@@ -50,7 +48,6 @@ main {
     color: red;
 }
 
-/* Estilos das Respostas */
 .replies {
     margin-left: 20px;
     padding-left: 10px;
@@ -61,7 +58,6 @@ main {
     margin-top: 10px;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .post-card {
         padding: 15px;
